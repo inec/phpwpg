@@ -9,7 +9,7 @@
     ?>
     <form action="/sign" method="post">
       <div><textarea name="content" rows="3" cols="60"></textarea></div>
-      <div><input type="submit" value="Sign githubk"></div>
+      <div><input type="submit" value="Sign thread  githubk"></div>
     </form>
   </body>
 </html>
