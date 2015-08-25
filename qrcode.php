@@ -102,30 +102,30 @@ elseif ($action == 'create')
 		$response['status'] = $api_response_code[ $response['code'] ]['HTTP Response'];
  if ($email )
  {
- $response['member'] = $email;
-  $response['data']= true;
+	$response['member'] = $email;
+	$response['data']= true;
+	
    if (file_exists(md5($email))) { // registered in the past
 	   
-
 		$response['data']= true;
 		$response['member'] = $email;
-				$response['msg'] = "existed";
-	   deliver_response('json', $response);
+		$response['msg'] = "existed";
+		deliver_response('json', $response);
 
 
-        } else {
+     }
+	 else
+	 {
 			$secret_key = $ga->createSecret();
             $account = $app_name.'-'.$email;
             file_put_contents(md5($email), $secret_key);
-			
-
             $qrCodeUrl = $ga->getQRCodeGoogleUrl($account, $secret_key);
-					$response['data']= true;
-		$response['member'] = $email;
-				$response['msg'] = "new";
-								$response['key'] = $secret_key;
-								$response['account'] = $account;
-									$response['url'] = $qrCodeUrl;
+			$response['data']= true;
+			$response['member'] = $email;
+			$response['msg'] = "new";
+			$response['key'] = $secret_key;
+			$response['account'] = $account;
+			$response['url'] = $qrCodeUrl;
 		}
 			   deliver_response('json', $response);
  }
