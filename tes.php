@@ -28,7 +28,7 @@ function deliver_response($format, $api_response){
  
     // Process different content types
     if( strcasecmp($format,'json') == 0 ){
- 
+ header("Access-Control-Allow-Origin: *");
         // Set HTTP Response Content Type
         header('Content-Type: application/json; charset=utf-8');
  
