@@ -145,11 +145,12 @@ elseif ($action == 'create')
 }
 else {
 
+/*
 if( strcasecmp($_GET['method'],'hello') == 0){
     $response['code'] = 1;
     $response['status'] = $api_response_code[ $response['code'] ]['HTTP Response'];
     $response['data'] = 'Hello World';
-}
+}*/
  
  
  
@@ -165,7 +166,7 @@ else
 {
 deliver_response('json', $response);
 }*/
-   echo "L-95 Enter email address to proceed with login.";
+   echo "L-168 Enter email address to proceed with login.";
     echo "<form action='". $_SERVER['PHP_SELF']."?action=part2&format=json' method='POST'>";
     echo "<input type='text' name='email' value='' />";
     echo "<button type='submit'>LOGIN</button>";
