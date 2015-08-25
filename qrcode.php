@@ -111,14 +111,7 @@ elseif ($action == 'create')
 		$response['member'] = $email;
 				$response['msg'] = "existed";
 	   deliver_response('json', $response);
-	   /*
-	        echo $_REQUEST['action'];
-            echo "<br>Enter the code for $app_name from Google Authenticator<br>";
-            echo "<form action='qrcode.php?action=part3' method='post'>";
-            echo "<input type='text' name='email' value='$email' readonly /><br />";
-            echo "<input type='text' name='code' /><br />";
-            echo "<button type='submit'>SUBMIT</button>";
-            echo "</form>";*/
+
 
         } else {
 			$secret_key = $ga->createSecret();
@@ -145,13 +138,7 @@ elseif ($action == 'create')
 }
 else {
 
-/*
-if( strcasecmp($_GET['method'],'hello') == 0){
-    $response['code'] = 1;
-    $response['status'] = $api_response_code[ $response['code'] ]['HTTP Response'];
-    $response['data'] = 'Hello World';
-}*/
- 
+
  
  
 // --- Step 4: Deliver Response
