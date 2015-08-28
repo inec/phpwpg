@@ -54,7 +54,7 @@ if ($action == 'auth') {
     }
 
 // if registered, request for code, if not, register user
-} elseif ($action == 'part2') {
+} elseif ($action == 'check') {
 //echo $email;
    if ($email ) {
         $response['code'] = 1;
@@ -64,6 +64,7 @@ if ($action == 'auth') {
 
 		$response['data']= true;
 		$response['member'] = $email;
+				$response['msg'] = 'check';
 	   deliver_response('json', $response);
 	   /*
 	        echo $_REQUEST['action'];
@@ -75,25 +76,15 @@ if ($action == 'auth') {
             echo "</form>";*/
 
         } else {
+				$response['data']= false;
+		$response['member'] = $email;
+				$response['msg'] = 'check';
+	   deliver_response('json', $response);
      		// new registration
-            $secret_key = $ga->createSecret();
-            $account = $app_name.'-'.$email;
-            file_put_contents(md5($email), $secret_key);
-			
 
-            $qrCodeUrl = $ga->getQRCodeGoogleUrl($account, $secret_key);
-            echo "<img src='$qrCodeUrl' /><br />";
-            echo "or enter this code manually into Google Authenticator<br/>";
-            echo "Your Account : $account<br/>";
-            echo "Your Key : $secret_key<br/>";
-            echo "When you are ready, click the button below.<br />";
-            echo "<form action='qrcode.php?action=part2' method='post'>";
-            echo "<input type='hidden' name='email' value='$email' />";
-            echo "<button type='submit'>CONTINUE</button>";
-            echo "</form>";
         }
     } else {
-        show_error("invalid email format");
+        show_error("invalid verb or parameters");
     } 
 }
 elseif ($action == 'create')
@@ -102,31 +93,25 @@ elseif ($action == 'create')
 		$response['status'] = $api_response_code[ $response['code'] ]['HTTP Response'];
  if ($email )
  {
-	$response['member'] = $email;
-	$response['data']= true;
-	
-   if (file_exists(md5($email))) { // registered in the past
-	   
-		$response['data']= true;
-		$response['member'] = $email;
-		$response['msg'] = "existed";
-		deliver_response('json', $response);
+ $response['email'] = $email;
+  $response['data']= true;
 
 
-     }
-	 else
-	 {
+
+
 			$secret_key = $ga->createSecret();
             $account = $app_name.'-'.$email;
             file_put_contents(md5($email), $secret_key);
+			
+
             $qrCodeUrl = $ga->getQRCodeGoogleUrl($account, $secret_key);
-			$response['data']= true;
-			$response['member'] = $email;
-			$response['msg'] = "new";
-			$response['key'] = $secret_key;
-			$response['account'] = $account;
-			$response['url'] = $qrCodeUrl;
-		}
+					$response['data']= true;
+		$response['member'] = $email;
+				$response['msg'] = "new";
+								$response['key'] = $secret_key;
+								$response['account'] = $account;
+									$response['url'] = $qrCodeUrl;
+		
 			   deliver_response('json', $response);
  }
  else
@@ -136,9 +121,35 @@ elseif ($action == 'create')
  
    deliver_response('json', $response);
 }
+elseif ($action == 'delete')
+{
+        $response['code'] = 1;
+		$response['status'] = $api_response_code[ $response['code'] ]['HTTP Response'];
+				$response['member'] = $email;
+	   if (file_exists(md5($email))) { // registered in the past
+	   
+unlink(md5($email));
+		$response['data']= true;
+
+				$response['msg'] = 'delete_done';
+
+	   }
+	   else
+	   {
+	   		$response['data']= false;
+
+				$response['msg'] = 'file_not_exist';
+	   }
+	   	   deliver_response('json', $response);
+}
 else {
 
-
+if( strcasecmp($_GET['method'],'hello') == 0){
+    $response['code'] = 1;
+    $response['status'] = $api_response_code[ $response['code'] ]['HTTP Response'];
+    $response['data'] = 'Hello World';
+}
+ 
  
  
 // --- Step 4: Deliver Response
@@ -153,8 +164,8 @@ else
 {
 deliver_response('json', $response);
 }*/
-   echo "L-168 Enter email address to proceed with login.";
-    echo "<form action='". $_SERVER['PHP_SELF']."?action=part2&format=json' method='POST'>";
+   echo "L-95 Enter email address to proceed with login.";
+    echo "<form action='". $_SERVER['PHP_SELF']."?action=check&format=json' method='POST'>";
     echo "<input type='text' name='email' value='' />";
     echo "<button type='submit'>LOGIN</button>";
     echo "</form>";    
