@@ -7,6 +7,10 @@ $app->config(array(
    'templates.path' => './templates'
 ));
 $app->get('/about', function () use ($app) {
-    $app->render('about.php');
+    $data = array(
+        'heading' => 'my headingAbout page',
+        'message' => ' my msg This page is an example of static route, rendering a php file.'
+    );
+    $app->render('about.php',$data);
 });
 $app->run();
