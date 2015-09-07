@@ -16,7 +16,7 @@ $dateTime = new DateTime();
 $firebase->set(DEFAULT_PATH . '/' . $dateTime->format('c'), $test);
 
 // --- storing a string ---
-//$firebase->set(DEFAULT_PATH . '/name/contact001', "value");
+$firebase->set(DEFAULT_PATH . '/name/contact001', "value");
 
 // --- reading the stored string ---
 $name = $firebase->get(DEFAULT_PATH . '/name/contact001');
