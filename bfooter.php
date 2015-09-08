@@ -51,8 +51,7 @@
     </footer>
     <!-- FOOTER SECTION END-->
     <!-- REQUIRED SCRIPTS FILES -->
-    <!-- CORE JQUERY FILE -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
     <!-- REQUIRED BOOTSTRAP SCRIPTS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en-US">
   <head>
     <meta charset='UTF-8'>
@@ -18,6 +17,9 @@
     <!-- CUSTOM STYLES -->
 	
     <link href="assets/css/style.css" rel="stylesheet" />
+	<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="scripts/jquery.bootstrap.newsbox.min.js" type="text/javascript"></script>
 	<!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
