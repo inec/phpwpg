@@ -19,7 +19,7 @@ $test = array(
     "id" => 42
 );
 $dateTime = new DateTime();
-//$firebase->set(DEFAULT_PATH . '/' . $dateTime->format('c'), $test);
+$firebase->set(DEFAULT_PATH . '/' . $dateTime->format('c'), $test);
 
 // --- storing a string ---
 //$firebase->set(DEFAULT_PATH . '/name/contact001', "value");
