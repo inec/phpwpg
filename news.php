@@ -8,7 +8,7 @@ const DEFAULT_PATH = '/NewsArticle';
 $firebase = new \Firebase\FirebaseLib(DEFAULT_URL, DEFAULT_TOKEN);
 
 ?>
-<h1 style="margin-top:150px" align="center">jQuery Bootstrap News Box</h1>
+<h1 style="margin-top:15px" align="center">Demo jQuery Bootstrap News Box </h1>
 
 <div class="container">
 <div class="row">
