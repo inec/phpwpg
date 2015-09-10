@@ -28,7 +28,7 @@
     <![endif]-->
 </head>
 <body>
-    <div class="navbar navbar-default">
+    <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -36,8 +36,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
-                    <img src="assets/img/vivaldi-logo.png" alt="" class=" img-responsive" />
+                <a class="navbar-brand" href="index.php">
+				<?php 
+					if (!preg_match('/index.php/',$_SERVER['PHP_SELF']))
+				{
+					echo '<img src="assets/img/vivaldi-logo.png" alt="" class=" img-responsive" />';
+				}	
+				else
+				{
+						            echo       ' <img src="assets/img/vivaldi-logo.png" alt="" class="visible-xs img-responsive" />
+					<img src="assets/img/logo_flag.png" alt="" class="hidden-xs img-responsive" />';
+				}
+					?>
+                
 				
                 </a>
 				
@@ -48,22 +59,22 @@
 					<ul class="nav navbar-nav">
 				     <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ABOUT <span class="caret"></span></a>
+              <a href="about.php" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ABOUT <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#home">Meet Brio</a></li>
-                <li><a href="#home">Careers</a></li>
-                <li><a href="#home">Giving Back</a></li>
- <li><a href="#contact">Contact</a></li>
+                <li><a href="about.php#aboutbrio">Meet Brio</a></li>
+                <li><a href="about.php#career">Careers</a></li>
+                <li><a href="about.php#community">Giving Back</a></li>
+ <li><a href="about.php#contact">Contact</a></li>
               </ul>
             </li>
 
 				
 
 					
-                    <li><a href="#services">PRODUCTS</a></li>
-                    <li><a href="#works">NEWS</a></li>
-                    <li><a href="#contact">CONTACT</a></li>
-					    <li><a href="#contact">FAQ</a></li>
+                    <li><a href="product.php">PRODUCTS</a></li>
+                    <li><a href="news2.php">NEWS</a></li>
+                    <li><a href="#quote">REQUEST A QUOTE</a></li>
+					    <li><a href="faq.php">FAQ</a></li>
                 </ul>
             </div>
 
