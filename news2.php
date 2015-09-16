@@ -72,8 +72,8 @@ $db = new PDO('sqlite:site.db');
 echo '</ul>
 </div></div></div><div class="panel-footer"> ';
 
-?>
 </div></div>
+?>
 
 <div class="">
 <?php 

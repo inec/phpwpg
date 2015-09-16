@@ -1,13 +1,20 @@
 <?php
   include_once 'bnav.php'; 
 
-/*   require_once 'config.php';
-require __DIR__ . '/vendor/autoload.php';
 
-const DEFAULT_PATH = '/NewsArticle';
-$firebase = new \Firebase\FirebaseLib(DEFAULT_URL, DEFAULT_TOKEN); */
 
 ?>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script src="Scripts/jquery.newsTicker.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
+<script src="Scripts/news.js"></script>
 	    <section id="aboutbrio">
     <div class="container">
         <div class="row">
@@ -42,96 +49,82 @@ $firebase = new \Firebase\FirebaseLib(DEFAULT_URL, DEFAULT_TOKEN); */
 
 <div class="container">
 <div class="row">
-<div class="col-md-4">
+<div class="col-md-3">
 <div class="panel panel-default">
-<div class="panel-heading"> <span class="glyphicon glyphicon-list-alt"></span><b> &nbsp;  NEWS AT BRIO</b></div>
+
+<div class="panel-heading"> 
+       <span class="glyphicon glyphicon-list-alt"></span>
+	   <b> &nbsp;  BRIO NEWS</b>
+	   </div>
+	   
 <div class="panel-body">
 <div class="row">
 <div class="col-xs-12">
 <ul id="nav">
 <?php 
-$string = file_get_contents("NewsArticle.json");
-$arrayj=json_decode($string,true);
-
-//echo sizeof($arrayj);
-$cnt=0;
-foreach ($arrayj as  $key =>&$value) {
-
-		echo "<li class='news-item' id="."><a href=#".$cnt."><strong>".$key."</strong></br>more...</a></li>";
-$cnt+=1;
-}//end of each
-
-
-?>
-
-</ul>
-</div>
-</div>
-</div>
-<div class="panel-footer"> </div>
-</div>
-</div>
-<div class="col-md-8">
-<div id="tab-content">
-<?php 
 //$string = file_get_contents("NewsArticle.json");
 //$arrayj=json_decode($string,true);
+$db = new PDO('sqlite:site.db');
 
-//echo sizeof($arrayj);
-foreach ($arrayj as  $key =>&$value) {
+	$result = $db->query("SELECT * FROM NEWS");
 
+    foreach($result as $row)
+    {
 
-if($key=="2015-09-08T04:48:12 02:00")
-{
-		echo "<div id=#".$key." >".array_values($value)[0]."</div>";
-}
-else
-{
-	echo "<div id=#".$key." >".array_values($value)[0]."</div>";
-}
-	}
+	 echo "<li class='news-item' id="."><a href=#".$row['Id']."><strong>".$row['Title']."</strong></br>more...</a></li>";
+
+    }
+echo '</ul>
+</div></div></div><div class="panel-footer"> ';
+
 ?>
+</div></div>
+
+
+<div class="fb-page" data-href="https://www.facebook.com/brioinsurance" data-width="500" data-height="300" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/brioinsurance"><a href="https://www.facebook.com/brioinsurance">Brio Insurance</a></blockquote></div></div>
+
+</div>
+<?php	
+echo '<div class="col-md-9"><div id="tab-content">';
+	$result = $db->query("SELECT * FROM NEWS");
+    foreach($result as $row)
+    {
+	echo "<div id=".$row['Id']." >".$row['TextData']."</div>";
+    }
+    $db = NULL;
+?>
+
 </div>
 </div>
 
 </div>
 </div>
     </section>
+	
 <script type="text/javascript">
 $('#tab-content div').hide();
 $('#tab-content div:first').show();
 
-
     $(function () {
-
-
         $("#nav").bootstrapNews({
             newsPerPage: 3,
-            autoplay: false,
-                   navigation:false,
+            autoplay: true,
+                   navigation:true,
             onToDo: function () {
                 //console.log(this);
             }
         });
 		
 	$('#nav li').click(function(event) {
+		//event.preventDefault();
     $('#nav li a').removeClass("active");
     $(this).find('a').addClass("active");
-    $('#tab-content div').hide();
 
-    var indexer = $(this).index(); //gets the current index of (this) which is #nav li
-	//var refid=$(this).find('a').attr('href');
-	//console.log($(this).html());
-	//console.log(  $(refid).html());
-    //$(refid).find('a').addClass("active");
-	//$(refid).fadeIn();
-	//event.preventDefault();
-	//$(this).find('a').attr('href').fadeIn();
 
-   $('#tab-content div:eq(' + indexer + ')').fadeIn(); //uses whatever index the link has to open the corresponding box 
-  // $(this).attr('id').fadeIn();
-}); //end of click
-    });
+	}); //end of click
+	
+}); //end of function
+
 </script>
 <div class="container aboutbrio col-md-12">
         <div class="row">
