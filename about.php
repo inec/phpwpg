@@ -4,10 +4,9 @@
 	    <section id="aboutbrio">
     <div class="container">
         <div class="row">
+		<div class="pad-top50"></div>
 				<div class="text-center bgGFont opsix">ABOUT</div>
-				  					  <!--		<div class="arrow_box">
-          <h1 class="logo">css arrow please!</h1>
-          </div>-->
+
 			<div class="text-center meetbrio">Meet Brio Insurance</div>
 
 			
@@ -20,7 +19,7 @@
 	    <!--HOME SECTION END  -->
     <section id="aboutus" class="arrow_box">
         <div class="container">
-            <div class="row text-center pad-bottom">
+            <div class="row text-center">
 							<div class="">If you haven’t worked with Brio Insurance before, you’re probably wondering what it is that makes us seem just a little bit weird. We’ve been in your community for years but we’re not stuck in our ways; at Brio Insurance, we’re always looking for ways to make your experience better than ever!</div>
 
 							<h4 class="brlineheight">You know that feeling you get when you walk into a familiar place and see a friendly face? That’s Brio Insurance. 
@@ -44,20 +43,16 @@
 		<div class="text-center bgGFont"><i class="fa fa-map-marker fa-5x"></i></div>
 		</div>
 		</div>
-
-	    <section id="career" class="aboutbrio">
+		
+<section id="career" class="aboutbrio">
     <div class="container">
         <div class="row">
 				<div class="text-center bgGFont opsix">CAREERS</div>
-
-			<div class="text-center meetbrio">We'll Tweet You like Family</div>
-
-			
+			<div class="text-center meetbrio">We'll Tweet You like Family</div>		
         </div>
-
     </div>
+</section>
 
-        </section>
 
 		  <div class="container col-md-12 head-set arrow_box services">
             <div class="row col-md-8 col-md-offset-2 text-center head-set">
@@ -77,10 +72,10 @@ your client’s experience even better, Brio Insurance might have the career for
 		
 		
 		<div class="bgColor2 head-set">
-			<div class="head-set">&nbsp;</div>
+			<!--<div class="head-set">&nbsp;</div>-->
 			<div class="head-set">
 			<h3 class="text-center bgGFont fontrobotos">&nbsp;</h3>
-			<h2 class="text-center hidden-xs hidden-md fontrobotos head-set"><a class="bgGFont  borderWhite carefont">To view current career opportunities with Brio Insurance click here!</a></h2>
+			<h2 class="text-center hidden-xs hidden-md fontrobotos head-set"><span class="borderWhite"><a class="bgGFont   carefont">To view current career opportunities with Brio Insurance click here!</a></span></h2>
 					<h2 class="text-center visible-xs visible-md fontrobotos"><a class="bgGFont carefont">To view current career opportunities with Brio Insurance click here!</a></h2>
 		
 
@@ -136,154 +131,24 @@ title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" fram
 
 		</div>
 		</div>
-     <section id="contact" class="aboutbrio">
-		<div class="container">
-        <div class="row">
-				<div class="text-center bgGFont opsix ">CONTACT</div>
-
-			<div class="text-center meetbrio">Want to chat?</div>
-
-			
-        </div>
-
-    </div>
-	    </section >
-
 		
-<div class="container col-md-12 head-set services arrow_box ">
-<div class="row col-md-10 col-md-offset-1 text-center">
+	 <?php
 
-<div class="fsize2">
-Stop by and visit us in person, give us a call, or use the contact form below to send us an email! 
-</div>
-  
-<div class="row">
+   include_once 'contactform.php'; 
+?>
 
-<div class="head-set col-md-3 col-md-offset-3 col-xs-offset-3  text-left fsize2">
-	<div class="row color2 fweight9  fsizeLocation text-left">Steinbach</div>
-	<div class="row">1 – 13 Brandt Street</div>
-	<div class="row">Steinbach, MB R5G 0C2</div>
-	<div class="row">P: 1 204 326 3870</div>
-	<div class="row">F: 1 204 326 4553</div>
-              
-</div>
-			
-<div class="head-set col-md-5 col-md-offset-1 col-xs-offset-3 text-left fsize2">
-		<div class="row color2 fweight9  fsizeLocation text-left">St. Mary's</div>	
-		<div class="row">	555 St. Mary's Rd</div>
-		<div class="row">Winnipeg, MB R5G 5C5</div>
-		<div class="row">P: 1 204 555 5555</div>
-		<div class="row">F: 1 204 555 5555</div>             
-</div>
-
-			
-</div>
-</div>
-
- </div>
-
-
-		<div class="bgColor4 head-set arror_box">
-		 <div class="row colorGray head-set">
-
-
-			
-        </div>
-                <form class="form-horizontal head-set colorGray" method="#" id='contact_form'>
-                    <fieldset>
-                     
-					<div class="col-md-6 head-set">
-                        <div class=" form-group ">
-                            <span class="col-md-6  text-right">First Name</span>
-                            <div class="col-md-6">
-                                <input id="fname" name="name" type="text" placeholder="First Name" class="form-control" required>
-                            </div>
-                        </div>
-						
-                        <div class="form-group">
-                            <span class="col-md-6  text-right">Last Name</span>
-                            <div class="col-md-6">
-                                <input id="lname" name="name" type="text" placeholder="Last Name" class="form-control">
-                            </div>
-                        </div>
-				
-
-                        <div class="form-group">
-                            <span class="col-md-6  text-right">Email</span>
-                            <div class="col-md-6">
-                                <input id="email" name="email" type="text" placeholder="Email Address" class="form-control" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <span class="col-md-6  text-right">Phone Number</span>
-                            <div class="col-md-6">
-                                <input id="phone" name="phone" type="text" placeholder="Phone" class="form-control">
-                            </div>
-                        </div>
-
-						<div class="form-group">
-						      <span class="col-md-6  text-right">How would you like to be contacted?</span>
-      <div class="col-md-6">
-	
-<div class=" checkbox checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox1" value="email" dcvalue="option1">
-                        <label for="inlineCheckbox1"> email </label>
-                    </div>
-<div class="checkbox checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox3" value="phone" dcvalue="option1">
-                        <label for="inlineCheckbox3"> phone</label>
-                    </div>
-    </div>
-  </div>
-                        <div class="form-group">
-                            <span class="col-md-6  text-right">Are you a client of Brio Insurance?</span>
-                            <div class="col-md-6">
-                             
-								<div class="radio radio-inline">
-                        <input type="radio" id="inlineRadio1" value="yes" name="radioInline"  dcvalue="option1">
-                        <label for="inlineRadio1"> yes </label>
-						  </div>
-						<div class="radio radio-inline">
-                        <input type="radio" id="inlineRadio2" value="no" name="radioInline" dcvalue="option1">
-                        <label for="inlineRadio2"> no </label>
-                    </div>
-                  
-                            </div>
-                        </div>
-
-								</div>
-								
-								
-								<div class="col-md-6 head-set">
-				    <div class="form-group">
-					<div class="col-md-9 col-md-offset-1">
-								<span class="text-left">Question, comment, or friendly hello:</span>
-								
-									<textarea class="form-control" id="message" name="message" placeholder="" rows="8" required></textarea>
-                            </div>
-                        </div>
-					   <div class="form-group">
-                   	<div class="col-md-9 col-md-offset-1">
-                                <button type="submit" class="btn btn-default col-md-10 col-md-offset-1">Submit</button>
-                     </div>
-                        </div>
-						</div>
-                    </fieldset>
-                </form>
-		</div>
 
 
 <div class="container aboutbrio col-md-12">
-        <div class="row">
-				<div class="text-center bgGFont opsix"></div>
-
+    <div class="row">
+			<div class="text-center bgGFont opsix"></div>
 			<div class="text-center meetbrio"></div>
+    </div>
 
-			
-        </div>
-
- </div>
+ </div>	
+		
+		
+     
      <!-- Footer Start-->
 
  <?php
