@@ -57,19 +57,12 @@ if (isset($_POST['submit'])){
 		$dupe = $db->query("SELECT COUNT(*) FROM $TABLE WHERE Title = '$TITLE'"); // Looks for Duplicate Titles
 		$dupe2 = $db->query("SELECT COUNT(*) FROM $TABLE WHERE TextData = '$TEXT'"); // Looks for Duplicate Text
 		$posts_ip = $db->query("SELECT COUNT(*) FROM $TABLE WHERE IP = '$ip'"); // $ of Posts by IP
-		//$duplicates = $dupe->fetchColumn();
-		//$duplicates += $dupe2->fetchColumn();
-		//echo 'IP: ' . $posts_ip->fetchColumn();
+
 $duplicates =0;
 		if ($duplicates == 0){
-/* 				$db->exec("CREATE TABLE $TABLE (Id INTEGER PRIMARY KEY, Title VARCHAR,Subtitle VARCHAR, TextData TEXT, Date VARCHAR,FromDate VARCHAR)");    
-				$db->exec("ALTER TABLE $TABLE ADD COLUMN SessID VARCHAR");
-				$db->exec("ALTER TABLE $TABLE ADD COLUMN IP VARCHAR");
-				$db->exec("ALTER TABLE $TABLE ADD COLUMN Time VARCHAR"); */
+
 				$Timex = Time(); // Get PHP's version of the time (Otherwise it'll use the database's)
-				//--$db->exec("INSERT INTO NEWS (TextData, Title, Date, SessID, Time, IP) VALUES ('$TEXT', '$TITLE', '$DATE', '$sid', '$Timex', '$ip');");
-				//	echo $TEXT;
-				//	echo $FROMDATE;
+
 				$db->exec("INSERT INTO NEWS (TextData, Title, Date, FromDate,SessID, Time, IP) VALUES ('$TEXT', '$TITLE', '$DATE', '$FROMDATE','$sid', '$Timex', '$ip')");
 		}else{
 			echo "<br/><font color=red>Duplicate Data Exists.</font><br/>";
@@ -102,10 +95,26 @@ table{
 border: none;
 }
 </style>
-
+        <script src="assets/mockjax/jquery.mockjax.js"></script>
+        
+        <!-- momentjs --> 
+        <script src="assets/momentjs/moment.min.js"></script> 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Readmore.js/2.0.5/readmore.min.js"></script>
   <script type="text/javascript" src="//cdn.ckeditor.com/4.5.3/standard/ckeditor.js"></script>
+
+        <script src="assets/x-editable/inputs-ext/address/address.js"></script> 
+		
+<link href="assets/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.css" rel="stylesheet" type="text/css"></link>  
+<script src="assets/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/wysihtml5-0.3.0.min.js"></script>  
+<script src="assets/x-editable/inputs-ext/wysihtml5/bootstrap-wysihtml5-0.0.2/bootstrap-wysihtml5-0.0.2.min.js"></script>
+	<script src="assets/x-editable/inputs-ext/wysihtml5/wysihtml5.js"></script>  
+	
+        <script src="assets/demo-mock.js"></script> 
+        <script src="assets/demo.js"></script>  
   <div class="container">
+  <a href="" class="username"  data-type="text" data-title="Enter username">currentValue</a>
+  <a href="#" id="dob" data-type="combodate" data-value="1984-05-15" data-format="YYYY-MM-DD" data-viewformat="DD/MM/YYYY" data-template="D / MMM / YYYY" data-pk="1"  data-title="Select Date of birth"></a>
+  
 <h2>News Manager </h2><a href="<?php echo $_SERVER['PHP_SELF']; ?>">refresh</a>
 <form method="post" >
 <table class="jumbotron col-md-10 " border="1"  bordercolor="blue" padding=1>
@@ -141,8 +150,7 @@ border: none;
 <div class='container'>
 <div id="aboutus" class="aboutus"><table class="table" width="100%" border=0>
 <?PHP
-//list current news
-   //$result = $db->query("SELECT * FROM $TABLE ORDER BY Time DESC");
+
 	$result = $db->query("SELECT * FROM NEWS");
 
 	//
@@ -163,7 +171,7 @@ return <<<HTML
     </div>
     <div id= "rmore{$idStr}"" class="accordion-body collapse">
       <div class="accordion-inner">
-       {$str2}
+      <div class="wysihtml5" data-name="newshtml5" data-type="wysihtml5" data-pk="{$idStr}"> {$str2} </div>
       </div>
     </div>
     
@@ -181,8 +189,8 @@ function writeMsg($name = "",$text="",$sid="") {
     {
 
 	  print '';
-	  print '<tr><td colspan=4>'.$row['FromDate'] .': ' . $row['Date'] . '</td>';
-    //  print "<td colspan=4><h1>" . $row['Title'] . "</h1></td>";
+	  print "<tr><td colspan=4 class='toDate'>".$row['FromDate'] .': ' . $row['Date'] . '</td>';
+
 	  print "<td colspan=4 align=center>";
 	writeMsg($row['Title'],$row['TextData'] ,$row['Id']);
 	  if ($row['SessID'] == $sid){
@@ -190,7 +198,10 @@ function writeMsg($name = "",$text="",$sid="") {
 			echo '';
 	  }
 	  
-	  echo "</td><td><button class='btn btn-danger'>Delete</button></td></tr>";
+	  echo "</td>";
+	  echo "<td><button class='btn btn-danger'>Delete</button></td>";
+	   echo "<td><button class='btn btn-default'>Update</button></td>";
+	  echo "<td><button class='btn btn-danger'>Delete</button></td></tr>";
 
     }
   
@@ -208,7 +219,15 @@ function writeMsg($name = "",$text="",$sid="") {
   </td>
   </tr>
 </table></div><br/><br/>
-N</div>
+<div id="te" class="wysihtml5" data-type="wysihtml5" data-pk="551"><h2>awesome</h2> comment!</div>
+
+<a href="" data-name="addressData-Name" class="address" data-type="address" data-pk="131" data-title="Please, fill address" class="editable editable-click" data-original-title="oTitle" title="TT" style="background-color: rgba(0, 0, 0, 0);"><b>Moscow</b>, Lenina st., bld. 1231</a>
+                    
+            <div style="float: left; width: 50%">
+                <h3>Console <small>(all ajax requests here are emulated)</small></h3> 
+                <div><textarea id="console" class="form-control" rows="8" style="width: 70%" autocomplete="off"></textarea></div>
+            </div>
+           </div>
 
 
 <?PHP 	include_once 'bfooter.php'; ?>
