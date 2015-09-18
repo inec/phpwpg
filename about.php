@@ -1,10 +1,11 @@
 ﻿<?php 
   include_once 'bnav.php';
 ?>
-	    <section id="aboutbrio">
+	    <section class="aboutbrio">
     <div class="container">
         <div class="row">
 		<div class="pad-top50"></div>
+
 				<div class="text-center bgGFont opsix">ABOUT</div>
 
 			<div class="text-center meetbrio">Meet Brio Insurance</div>
@@ -17,7 +18,7 @@
         </section>
 	
 	    <!--HOME SECTION END  -->
-    <section id="aboutus" class="arrow_box">
+    <section id="aboutus" class="arrow_box shadow-top1">
         <div class="container">
             <div class="row text-center">
 							<div class="">If you haven’t worked with Brio Insurance before, you’re probably wondering what it is that makes us seem just a little bit weird. We’ve been in your community for years but we’re not stuck in our ways; at Brio Insurance, we’re always looking for ways to make your experience better than ever!</div>
@@ -32,7 +33,7 @@
         </div>
     </section>
     <!--SERVICES SECTION END  -->
-		<div class="row bgGreen1">
+		<div class="row bgGreen1 pad-top30">
 
 		</div>
 		<div class="row bgGreen1">
@@ -40,11 +41,11 @@
 		<h3 class="text-center bgGFont fontrobotos col-xs-12">Want to find out what a neighbourly insurance brokerage is like?</h3>
 			<h2 class="text-center bgGFont fontrobotos col-xs-12">Stop by and see for yourself!</h2>
 		
-		<div class="text-center bgGFont"><i class="fa fa-map-marker fa-5x"></i></div>
+		<div class="text-center bgGFont carefonta"><a href="#contact"><i class="fa fa-map-marker fa-5x pad-bottom30 pad-top30"></i></a></div>
 		</div>
 		</div>
 		
-<section id="career" class="aboutbrio">
+<section id="career" class="aboutbrio shadow-top-dark">
     <div class="container">
         <div class="row">
 				<div class="text-center bgGFont opsix">CAREERS</div>
@@ -54,9 +55,9 @@
 </section>
 
 
-		  <div class="container col-md-12 head-set arrow_box services">
+		  <div class="container col-md-12 head-set arrow_box services shadow-top1">
             <div class="row col-md-8 col-md-offset-2 text-center head-set">
-
+<div class="head-set"></div>
 							<div class="head-set">
 							Working with Brio Insurance is unlike working with any insurance brokerage you’ve ever heard of!
 We want to work with individuals who understand the values that built our business so many years
@@ -75,17 +76,25 @@ your client’s experience even better, Brio Insurance might have the career for
 			<!--<div class="head-set">&nbsp;</div>-->
 			<div class="head-set">
 			<h3 class="text-center bgGFont fontrobotos">&nbsp;</h3>
-			<h2 class="text-center hidden-xs hidden-md fontrobotos head-set"><span class="borderWhite"><a class="bgGFont   carefont">To view current career opportunities with Brio Insurance click here!</a></span></h2>
+			<h2 class="text-center hidden-xs hidden-md fontrobotos head-set">
+
+					<div class="head-set">
+					<div class="pad-top50 pad-bottom50 ">
+					<span class="borderWhite"><a class="bgGFont   carefont">To view current career opportunities with Brio Insurance click here!</a></span>
+					</div>
+					</div>
+
+			</h2>
 					<h2 class="text-center visible-xs visible-md fontrobotos"><a class="bgGFont carefont">To view current career opportunities with Brio Insurance click here!</a></h2>
 		
 
 
 		</div>
 		</div>
-    <section id="community" class="aboutbrio">
+    <section id="community" class="aboutbrio shadow-top-dark">
 		<div class="container">
         <div class="row">
-				<div class="text-center bgGFont opsix arrow-box">Giving Back</div>
+				<div class="text-center bgGFont opsix arrow-box">GIVING BACK</div>
 				  					  <!--		<div class="arrow_box">
           <h1 class="logo">css arrow please!</h1>
           </div>-->
@@ -96,7 +105,7 @@ your client’s experience even better, Brio Insurance might have the career for
 
     </div>
 	    </section >
- <div class="container col-md-12 head-set arrow_box services">
+ <div class="container col-md-12 head-set arrow_box services shadow-top1">
             <div class="row col-md-8 col-md-offset-2 text-center head-set">
 
 							<div class="head-set">
@@ -139,7 +148,7 @@ title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" fram
 
 
 
-<div class="container aboutbrio col-md-12">
+<div class="container aboutbrio col-md-12 shadow-bot-green">
     <div class="row">
 			<div class="text-center bgGFont opsix"></div>
 			<div class="text-center meetbrio"></div>
