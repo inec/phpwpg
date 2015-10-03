@@ -12,10 +12,6 @@
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<script id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script>
-<script src="Scripts/jquery.newsTicker.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.address/1.6/jquery.address.min.js"></script>
-<script src="Scripts/news.js"></script>
 	    <section id="aboutbrio">
     <div class="container">
         <div class="row">
@@ -23,7 +19,7 @@
 				  					  <!--		<div class="arrow_box">
           <h1 class="logo">css arrow please!</h1>
           </div>-->
-			<div class="text-center meetbrio">What's New at Brio</div>
+			<div class="text-center meetbrio">WHAT'S NEW AT BRIO</div>
 
 			
         </div>
@@ -33,7 +29,7 @@
         </section>
 	
 	    <!--HOME SECTION END  -->
-    <section id="aboutus" class="arrow_box shadow-top-dark">
+    <section id="aboutus" class="arrow_box">
         <div class="hidden-xs container">
             <div class="row text-center pad-bottom">
 
@@ -50,17 +46,6 @@
 
 <div class="container">
 <div class="row">
-<?php	
-echo '<div class="col-md-9"><div id="tab-content">';
-$db = new PDO('sqlite:site.db');
-	$result = $db->query("SELECT * FROM NEWS");
-    foreach($result as $row)
-    {
-	echo "<div id=".$row['Id']." >".$row['TextData']."</div>";
-    }
-
-	echo "</div></div>"
-?>
 <div class="col-md-3">
 <div class="panel panel-default">
 
@@ -76,7 +61,7 @@ $db = new PDO('sqlite:site.db');
 <?php 
 //$string = file_get_contents("NewsArticle.json");
 //$arrayj=json_decode($string,true);
-
+$db = new PDO('sqlite:site.db');
 
 	$result = $db->query("SELECT * FROM NEWS");
 
@@ -88,7 +73,7 @@ $db = new PDO('sqlite:site.db');
     }
 echo '</ul>
 </div></div></div><div class="panel-footer"> ';
-    $db = NULL;
+
 ?>
 </div></div>
 
@@ -96,10 +81,18 @@ echo '</ul>
 <div class="fb-page" data-href="https://www.facebook.com/brioinsurance" data-width="500" data-height="300" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/brioinsurance"><a href="https://www.facebook.com/brioinsurance">Brio Insurance</a></blockquote></div></div>
 
 </div>
+<?php	
+echo '<div class="col-md-9"><div id="tab-content">';
+	$result = $db->query("SELECT * FROM NEWS");
+    foreach($result as $row)
+    {
+	echo "<div id=".$row['Id']." >".$row['TextData']."</div>";
+    }
+    $db = NULL;
+?>
 
-
-
-
+</div>
+</div>
 
 </div>
 </div>
@@ -120,18 +113,23 @@ $('#tab-content div:first').show();
         });
 		
 	$('#nav li').click(function(event) {
-		//event.preventDefault();
+			//event.preventDefault();
     $('#nav li a').removeClass("active");
     $(this).find('a').addClass("active");
+    $('#tab-content div').hide();
 
-
+    var indexer = $(this).index(); //gets the current index of (this) which is #nav li
+    var target_news=$(this).children(":first").attr("href");
+console.log(target_news);
+	$(target_news).fadeIn();
+console.log("t");
 	}); //end of click
 	
 }); //end of function
 
 </script>
-<div class="container aboutbrio col-md-12 shadow-top-dark shadow-bot-green">
-        <div class="row shadow-bot-dark">
+<div class="container aboutbrio col-md-12">
+        <div class="row">
 				<div class="text-center bgGFont opsix"></div>
 
 			<div class="text-center meetbrio"></div>
