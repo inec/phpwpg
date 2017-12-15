@@ -1,6 +1,7 @@
 {
     "require": {
         "slim/slim": "^2.6",
-        "ktamas77/firebase-php": "dev-master"
+        "ktamas77/firebase-php": "dev-master",
+        "league/plates": "^3.3"
     }
 }
