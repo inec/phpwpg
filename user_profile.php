@@ -1,8 +1,8 @@
-<?php // user_profile.php ?>
+<?php require __DIR__ . '/vendor/autoload.php';
 
-<?php $this->insert('header', ['title' => 'User Profile']) ?>
+ ?>
+
+<?php $this->layout('template', ['title' => 'User Profile']) ?>
 
 <h1>User Profile</h1>
 <p>Hello, <?=$this->escape($name)?></p>
-
-<?php $this->insert('footer') ?>
