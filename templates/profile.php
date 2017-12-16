@@ -8,4 +8,4 @@
 <p>3. Welcome = <?=$this->escape(strtoupper(strip_tags($name)))?></p>
 
 
-<p>4. Welcome   </p>
+<p>4. Welcome <?=$this->e($name, 'strip_tags|strtoupper')?>  </p>
