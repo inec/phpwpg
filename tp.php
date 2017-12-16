@@ -9,7 +9,7 @@ $template
 = new League\Plates\Template\Template($templates, 'profile');
 
 // Render the template
-echo $template->render(['name' => 'Jonathan']);
+echo $template->render(['name' => 'TTTg']);
 
 // You can also render the template using the toString() magic method
 //echo $template;
