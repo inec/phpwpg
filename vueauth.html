@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue + Firebase + Auth Demo</title>
+  <style> body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; } </style>
+</head>
+<body>
+
+  <div id="app">
+    <h1>Simple Auth Demo</h1>
+    <p v-if="loading">Loading...</p>
+    <template v-if=user>
+      <img :src="user.photoURL" alt="avatar" style="width: 30px; height: 30px; border-radius: 50%;">
+      <button @click="signOut">Sign Out</button>
+      <ul>
+        <li v-for="item in items">{{ item.name }}
+          <button @click="removeItem(item)">&times;</button>
+        </li>
+      </ul>
+      <p v-if="!items.length">No items found! Add one below.</p>
+      <label for="item">Add Item</label> <br>
+      <input type="text" v-model="item" @keyup.enter="addItem">
+    </template>
+    <template v-if="!user && !loading">
+      <button @click="signInWithGoogle">Sign in with Google</button>
+    </template>
+  </div>
+
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.10/firebase-auth.js"></script>
+  <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+
+  <script>
+
+  var config = {
+ apiKey: "AIzaSyAVWrP3ya2YfvWtXJF-pHFsrK7Bc7D34Lw",
+    authDomain: "torrid-fire-1441.firebaseapp.com",
+    databaseURL: "https://torrid-fire-1441.firebaseio.com",
+    projectId: "torrid-fire-1441",
+    storageBucket: "torrid-fire-1441.appspot.com",
+    messagingSenderId: "765782482453"
+
+  }
+
+  const firebaseApp = firebase.initializeApp(config)
+  const db = firebaseApp.database()
+
+  const vm = new Vue({
+    el: '#app',
+
+    beforeCreate: function() {
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          this.user = user
+          this.$bindAsArray('items', db.ref(`items/${user.uid}`))
+        }
+        this.loading = false
+      })
+    },
+
+    data: {
+      loading: true,
+      user: null,
+      items: [],
+      item: ''
+    },
+
+    methods: {
+      signInWithGoogle: function() {
+        const provider = new firebase.auth.GoogleAuthProvider()
+        firebase.auth().signInWithRedirect(provider).then((result) => {
+          this.user = result.user
+        }).catch(err => console.log(error))
+      },
+
+      signOut: function() {
+        firebase.auth().signOut().then(() => {
+          this.user = null
+        }).catch(err => console.log(error))
+      },
+
+      addItem: function() {
+        this.$firebaseRefs.items.push({
+          name: this.item
+        }).then(() => {
+          this.item = ''
+        })
+      },
+
+      removeItem: function(item) {
+        this.$firebaseRefs.items.child(item['.key']).remove()
+      }
+    }
+  })
+
+  </script>
+
+</body>
+</html>
