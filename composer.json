@@ -3,6 +3,7 @@
         "slim/slim": "^2.6",
         "ktamas77/firebase-php": "dev-master",
         "league/plates": "^3.3",
-        "vlucas/spot2": "~2.0"
+        "vlucas/spot2": "~2.0",
+        "behat/behat": "3.*"
     }
 }
