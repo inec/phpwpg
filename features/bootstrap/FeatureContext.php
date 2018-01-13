@@ -19,4 +19,29 @@ class FeatureContext implements Context
     public function __construct()
     {
     }
+
+
+     /**
+     * @Given I am an anonymous user
+     */
+    public function iAmAnAnonymousUser()
+    {
+        throw new PendingException();
+    }
+
+   /**
+     * @When I search for behat
+     */
+    public function iSearchForBehat()
+    {
+        throw new PendingException();
+    }
+
+   /**
+     * @Then I get a result
+     */
+    public function iGetAResult()
+    {
+        throw new PendingException();
+    }
 }
