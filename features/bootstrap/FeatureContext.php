@@ -9,6 +9,7 @@ use Behat\Gherkin\Node\TableNode;
  */
 class FeatureContext implements Context
 {
+    protected $response=null;
     /**
      * Initializes context.
      *
@@ -36,7 +37,10 @@ class FeatureContext implements Context
      */
     public function iSearchForBehat()
     {
-        throw new PendingException();
+        //throw new PendingException();
+        $client = new GuzzleHttp\Client(['base_url'=>'https://api.github.com']);
+       $this->response = $client->get(uri:'/search/repositoreis?q=behat');
+
     }
 
    /**
