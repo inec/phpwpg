@@ -26,7 +26,9 @@ class FeatureContext implements Context
      */
     public function iAmAnAnonymousUser()
     {
-        throw new PendingException();
+        return true;
+        //throw new PendingException();
+       // throw new Exception();
     }
 
    /**
