@@ -44,6 +44,14 @@ class FeatureContext implements Context
 
     }
 
+/**
+     * @When I search for :arg1
+     */
+    public function iSearchFor($arg1)
+    {
+        throw new PendingException();
+    }
+    
    /**
      * @Then I get a result
      */
