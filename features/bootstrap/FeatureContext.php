@@ -49,9 +49,12 @@ class FeatureContext implements Context
      */
     public function iSearchFor($arg1)
     {
-        throw new PendingException();
+        $client = new GuzzleHttp\Client(['base_uri'=>'https://api.github.com']);
+        $this->response = 
+        $client->get('https://api.github.com'.'/search/repositories?q='.$arg1);
+       // throw new PendingException();
     }
-    
+
    /**
      * @Then I get a result
      */
