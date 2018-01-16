@@ -53,6 +53,11 @@ class FeatureContext implements Context
         if ($response_code <>200){
             throw new Exception("it doesn't work, we need 200 but a- ".$response_code);
         }
+
       //  throw new PendingException();
+      $data=json_decode($this->response->getBody(),true);
+      if ($data['total_count']==0){
+         throw new Exception("we goet wrong");
+      }
     }
 }
