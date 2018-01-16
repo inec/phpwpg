@@ -34,7 +34,7 @@ class FeatureContext implements Context
 
    /**
      * @When I search for behat
-     */
+
     public function iSearchForBehat()
     {
         //throw new PendingException();
@@ -42,7 +42,7 @@ class FeatureContext implements Context
         $this->response = 
         $client->get('https://api.github.com'.'/search/repositories?q=behat');
 
-    }
+    }     */
 
 /**
      * @When I search for :arg1
