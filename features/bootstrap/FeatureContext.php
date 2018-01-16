@@ -38,8 +38,9 @@ class FeatureContext implements Context
     public function iSearchForBehat()
     {
         //throw new PendingException();
-        $client = new GuzzleHttp\Client(['base_url'=>'https://api.github.com']);
-       $this->response = $client->get(uri: '/search/repositoreis?q=behat');
+        $client = new GuzzleHttp\Client(['base_uri'=>'https://api.github.com']);
+        $this->response = 
+        $client->get('https://api.github.com'.'/search/repositories?q=behat');
 
     }
 
@@ -49,6 +50,9 @@ class FeatureContext implements Context
     public function iGetAResult()
     {
         $response_code= $this->response->getStatusCode();
+        if ($response_code <>200){
+            throw new Exception("it doesn't work, we need 200 but a- ".$response_code);
+        }
       //  throw new PendingException();
     }
 }
