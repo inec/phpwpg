@@ -39,7 +39,7 @@ class FeatureContext implements Context
     {
         //throw new PendingException();
         $client = new GuzzleHttp\Client(['base_url'=>'https://api.github.com']);
-       $this->response = $client->get(uri:'/search/repositoreis?q=behat');
+       $this->response = $client->get(uri: '/search/repositoreis?q=behat');
 
     }
 
@@ -48,6 +48,7 @@ class FeatureContext implements Context
      */
     public function iGetAResult()
     {
-        throw new PendingException();
+        $response_code= $this->response->getStatusCode();
+      //  throw new PendingException();
     }
 }
