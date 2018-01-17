@@ -56,11 +56,11 @@ class FeatureContext implements Context
     }
 
 
-
-  /**
-     * @Then I get a :arg1 response code
+ /**
+     * @Then I expect a :arg1 response code
      */
-    public function iGetAResponseCode($arg1)
+    public function iExpectAResponseCode($arg1)
+
     {
         $response_code= $this->response->getStatusCode();
         if ($response_code <>$arg1){
@@ -69,10 +69,10 @@ class FeatureContext implements Context
 
     }
 
-    /**
-     * @Then I get at least :arg1  result
+   /**
+     * @Then I expect at least :arg1  result
      */
-    public function iGetAtLeastResult($arg1)
+    public function iExpectAtLeastResult($arg1)
     {
         $data=json_decode($this->response->getBody(),true);
         if ($data['total_count'] < $arg1){
