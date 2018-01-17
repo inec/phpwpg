@@ -71,4 +71,21 @@ class FeatureContext implements Context
          throw new Exception("we goet wrong");
       }
     }
+
+  /**
+     * @Then I get a :arg1 response code
+     */
+    public function iGetAResponseCode($arg1)
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then I get at least :arg1  result
+     */
+    public function iGetAtLeastResult($arg1)
+    {
+        throw new PendingException();
+    }
+
 }
