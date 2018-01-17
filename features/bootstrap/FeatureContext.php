@@ -55,29 +55,18 @@ class FeatureContext implements Context
        // throw new PendingException();
     }
 
-   /**
-     * @Then I get a result
-     */
-    public function iGetAResult()
-    {
-        $response_code= $this->response->getStatusCode();
-        if ($response_code <>200){
-            throw new Exception("it doesn't work, we need 200 but a- ".$response_code);
-        }
 
-      //  throw new PendingException();
-      $data=json_decode($this->response->getBody(),true);
-      if ($data['total_count']==0){
-         throw new Exception("we goet wrong");
-      }
-    }
 
   /**
      * @Then I get a :arg1 response code
      */
     public function iGetAResponseCode($arg1)
     {
-        throw new PendingException();
+        $response_code= $this->response->getStatusCode();
+        if ($response_code <>$arg1){
+            throw new Exception("it doesn't work, we need $arg1 but a- ".$response_code);
+        }
+
     }
 
     /**
@@ -85,7 +74,10 @@ class FeatureContext implements Context
      */
     public function iGetAtLeastResult($arg1)
     {
-        throw new PendingException();
+        $data=json_decode($this->response->getBody(),true);
+        if ($data['total_count']>=$arg1){
+           throw new Exception("we expecta tat leeast $arg1 wrong but found ".$data['total_count']);
+        }
     }
 
 }
