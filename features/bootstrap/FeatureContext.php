@@ -75,7 +75,7 @@ class FeatureContext implements Context
     public function iGetAtLeastResult($arg1)
     {
         $data=json_decode($this->response->getBody(),true);
-        if ($data['total_count']>=$arg1){
+        if ($data['total_count'] < $arg1){
            throw new Exception("we expecta tat leeast $arg1 wrong but found ".$data['total_count']);
         }
     }
