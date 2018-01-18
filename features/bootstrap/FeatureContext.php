@@ -80,4 +80,28 @@ class FeatureContext implements Context
         }
     }
 
+     /**
+     * @Given I am an authenticated user
+     */
+    public function iAmAnAuthenticatedUser()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @When I request a list of my repositories
+     */
+    public function iRequestAListOfMyRepositories()
+    {
+        throw new PendingException();
+    }
+
+    /**
+     * @Then The results should include a repository name :arg1
+     */
+    public function theResultsShouldIncludeARepositoryName($arg1)
+    {
+        throw new PendingException();
+    }
+
 }
