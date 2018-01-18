@@ -3,5 +3,5 @@ default:
         default:
             contexts:
             - FeatureContext:
-                username: fakename
-                password: notgoingtotellyou
+                github_username: fakename
+                github_password: notgoingtotellyou
