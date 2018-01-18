@@ -1,5 +1,7 @@
 default:
     suites:
         default:
-        features: features
-        bootstrap: %behat.paths.features%/bootstrap
+            contexts:
+            - FeatureContext: features
+                username: %behat.paths.features%/bootstrap
+                password: notgoingtotellyou
