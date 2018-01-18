@@ -10,6 +10,8 @@ use Behat\Gherkin\Node\TableNode;
 class FeatureContext implements Context
 {
     protected $response=null;
+    protected $username=null;
+    protected $password=null;
     /**
      * Initializes context.
      *
