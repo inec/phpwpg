@@ -1,0 +1,5 @@
+default:
+    suites:
+        default:
+        features: features
+        bootstrap: %behat.paths.features%/bootstrap
