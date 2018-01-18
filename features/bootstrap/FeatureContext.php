@@ -92,9 +92,12 @@ class FeatureContext implements Context
     {
         $client = new GuzzleHttp\Client([
             'base_uri'=>'https://api.github.com',
-            'auth'=>
+            'auth'=> [$this->username,$this->password]
             ]);
-        
+        $response=$client->get('/')''
+        if (200==$response->getStatusCode()){
+            thro wnew Exception("auth failed");
+        }
      //   throw new PendingException();
     }
 
