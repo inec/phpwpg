@@ -96,7 +96,7 @@ class FeatureContext implements Context
             ]);
         $response=$client->get('/');
         if (200 != $response->getStatusCode()){
-            thro wnew Exception("auth failed");
+            throw new Exception("auth failed");
         }
      //   throw new PendingException();
     }
