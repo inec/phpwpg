@@ -2,6 +2,6 @@ default:
     suites:
         default:
             contexts:
-            - FeatureContext: features
+            - FeatureContext:
                 username: fakename
                 password: notgoingtotellyou

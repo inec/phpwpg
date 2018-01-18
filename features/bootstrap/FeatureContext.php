@@ -22,8 +22,8 @@ class FeatureContext implements Context
     public function __construct($github_username,$github_password)
     {
         
-        this -> username = $github_username;
-        this -> password = $github_password;
+        $this -> username = $github_username;
+        $this -> password = $github_password;
     }
 
 
@@ -94,7 +94,7 @@ class FeatureContext implements Context
             'base_uri'=>'https://api.github.com',
             'auth'=> [$this->username,$this->password]
             ]);
-        $response=$client->get('/')''
+        $response=$client->get('/');
         if (200 != $response->getStatusCode()){
             thro wnew Exception("auth failed");
         }
