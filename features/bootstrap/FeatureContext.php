@@ -95,7 +95,7 @@ class FeatureContext implements Context
             'auth'=> [$this->username,$this->password]
             ]);
         $response=$client->get('/')''
-        if (200==$response->getStatusCode()){
+        if (200 != $response->getStatusCode()){
             thro wnew Exception("auth failed");
         }
      //   throw new PendingException();
@@ -106,7 +106,7 @@ class FeatureContext implements Context
      */
     public function iRequestAListOfMyRepositories()
     {
-        throw new PendingException();
+        throw new Exception();
     }
 
     /**
@@ -114,7 +114,7 @@ class FeatureContext implements Context
      */
     public function theResultsShouldIncludeARepositoryName($arg1)
     {
-        throw new PendingException();
+        throw new Exception();
     }
 
 }

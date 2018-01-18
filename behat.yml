@@ -3,5 +3,5 @@ default:
         default:
             contexts:
             - FeatureContext: features
-                username: %behat.paths.features%/bootstrap
+                username: fakename
                 password: notgoingtotellyou
