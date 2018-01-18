@@ -90,7 +90,12 @@ class FeatureContext implements Context
      */
     public function iAmAnAuthenticatedUser()
     {
-        throw new PendingException();
+        $client = new GuzzleHttp\Client([
+            'base_uri'=>'https://api.github.com',
+            'auth'=>
+            ]);
+        
+     //   throw new PendingException();
     }
 
     /**
