@@ -19,7 +19,7 @@ class FeatureContext implements Context
      * You can also pass arbitrary arguments to the
      * context constructor through behat.yml.
      */
-    public function __construct()
+    public function __construct($github_username,$github_password)
     {
     }
 
