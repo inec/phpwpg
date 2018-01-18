@@ -21,6 +21,9 @@ class FeatureContext implements Context
      */
     public function __construct($github_username,$github_password)
     {
+        
+        this -> username = $github_username;
+        this -> password = $github_password;
     }
 
 
