@@ -120,12 +120,13 @@ class FeatureContext implements Context
     public function theResultsShouldIncludeARepositoryName($arg1)
     {
         $repositories= json_decode($this->response->getBody(),true);
+        $temp="";
         foreach($repositories as $repository){
             if ($repository['name'] === $arg1 ){
                 return true;
-            }
+            }else{$temp=$temp.'--'.$repository['name'];}
         }
-        throw new Exception("expe find repo name  ",arg1);
+        throw new Exception("expe find repo name  ".$arg1.$temp);
     }
 
 }
