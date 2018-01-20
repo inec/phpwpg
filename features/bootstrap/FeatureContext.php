@@ -107,7 +107,7 @@ class FeatureContext implements Context
      */
     public function iRequestAListOfMyRepositories()
     {
-        throw new Exception();
+        $this->response =  $this->client->get('/usr/repos');
     }
 
     /**
