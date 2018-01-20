@@ -9,9 +9,10 @@ use Behat\Gherkin\Node\TableNode;
  */
 class FeatureContext implements Context
 {
-    protected $response=null;
-    protected $username=null;
-    protected $password=null;
+    protected $response= null;
+    protected $username= null;
+    protected $password= null;
+    protected $client  = null;
     /**
      * Initializes context.
      *
@@ -90,7 +91,7 @@ class FeatureContext implements Context
      */
     public function iAmAnAuthenticatedUser()
     {
-        $client = new GuzzleHttp\Client([
+        $this->client = new GuzzleHttp\Client([
             'base_uri'=>'https://api.github.com',
             'auth'=> [$this->username,$this->password]
             ]);
