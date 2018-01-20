@@ -1,7 +1,0 @@
-default:
-    suites:
-        default:
-            contexts:
-            - FeatureContext:
-                github_username: i
-                github_password: r
