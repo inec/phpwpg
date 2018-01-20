@@ -95,7 +95,7 @@ class FeatureContext implements Context
             'base_uri'=>'https://api.github.com',
             'auth'=> [$this->username,$this->password]
             ]);
-        $response=$client->get('/');
+        $response =  $this->client->get('/');
         if (200 != $response->getStatusCode()){
             throw new Exception("auth failed");
         }
@@ -107,7 +107,11 @@ class FeatureContext implements Context
      */
     public function iRequestAListOfMyRepositories()
     {
-        $this->response =  $this->client->get('/usr/repos');
+        $this->response =  $this->client->get('/user/repos');
+
+        if ($this->response->getStatusCode() != 200){
+            throw new Exception("L-113 failed");
+        }
     }
 
     /**
@@ -115,7 +119,13 @@ class FeatureContext implements Context
      */
     public function theResultsShouldIncludeARepositoryName($arg1)
     {
-        throw new Exception();
+        $repositories= json_decode($this->response->getBody(),true);
+        foreach($repositories as $repository){
+            if ($repository['name'] === $arg1 ){
+                return true;
+            }
+        }
+        throw new Exception("expe find repo name  ",arg1);
     }
 
 }
